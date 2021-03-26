@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Diabetes in Women</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="pregnancies" placeholder="Number of pregnancies" required="required" /><br>
+        <input type="text" name="glucose" placeholder="Glucose Level(Plasma glucose concentration a 2 hours in an oral glucose tolerance test)" required="required" /><br>
+	<input type="text" name="bpressure" placeholder="Blood Pressure(Diastolic blood pressure (mm Hg))" required="required" /><br>
+	<input type="text" name="skinfold" placeholder="Skin Thickness(Triceps skin fold thickness (mm))" required="required" /><br>
+	<input type="text" name="insulin" placeholder="Insulin(2-Hour serum insulin (mu U/ml))" required="required" /><br>
+	<input type="text" name="bmi" placeholder="BMI(weight in kg/(height in m)^2)" required="required" /><br>
+	<input type="text" name="pedigree" placeholder="Diabetes pedigree function" required="required" /><br>
+	<input type="text" name="age" placeholder="Age(in years)" required="required" /><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
